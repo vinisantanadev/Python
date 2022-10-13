@@ -16,12 +16,23 @@ print("""
 
 """)
 
-a, b = 0, 1
+i = 0
+i = int(input('        > '))
 
-while a < 10:
-        print
+print('\n' + div)
 
-print(div)
+        # laço lista
+while i == 1:
+        print('Você escolheu a opção de soma!')
+        print('Digite a quantidade de números\n')
+        repetsoma = int(input('       > '))
+        
+        print('\n\nDigite ')
+        while i < repetsoma:
+                
+        
+        i = i + 1
+        # end laço lista
 
 # end home
 
