@@ -1,125 +1,76 @@
 
-# config das divisões:2
+# config das divisões & outras estéticas
 div = 39 * '=' + '\n'
+userinput = 8 * ' '
 
 # inicio do app
 # laço do app
 
 #variaveis
-i = 0
+i = 1
 rescalc = 0
+operador = '='
 
-while i == 0:
-        print('\n' + div)
-
-        print('Bem vindo à calculadora geral!\nEscolha uma das opções abaixo:')
-
-        # opções de calculo
-        print("""
-
-        1 - Soma
-        2 - Multiplicação
-        3 - Potência
-        4 - Divisão
-
-        """)
-
-        # usuário escolhe a opção
-        # variavel do tipo char para passar pelo if
-        i = input('        > ')
         
-        # caso o usuário digite um número errado
-        # atualizar conforme o número de opções aumentar
-        if i != '1' and i != '2' and i != '3' and i != '4':
-                print('\n\nOpção inválida!\n')
+print('\n' + div)
+
+print('Bem vindo à calculadora')
+print('Você sempre pode ver um tutorial de uso digitando 0!\n')
+
+while operador == '=' or operador == '+' or operador == '-' or operador == '*':
+        
+        #numero incial do usuário
+        if operador == '=':
+                calculo = float(input(userinput + 'num> '))
+        
+        # caso o usuário queira ver o tutorial
+        if calculo == 0:
+                print('\nComece digitando um número\nEm seguida digite o operador desejado\nComo * ou +, por exemplo\nDigite = para terminar a conta e exibir o resultado\nE o app faz o resto!\nDigite . para sair do app\n\n' + div)
                 
-                input('>> Aperte enter para continuar <<')
+                calculo = float(input(userinput + 'num> '))
                 
-                i = 0
+        # input que vai decidir a conta do usuário 
+        if operador == '=':
+                operador = input(userinput + 'ope> ')
 
-        # transforma a variavel para número inteiro
-        i = int(i)
+        # caso o usuário digite +
+        while operador == '+':
 
-        print('\n' + div)
+                num = float(input(userinput + 'num> '))
+                calculo = calculo + num
+                operador = (input(userinput + 'ope> '))
 
-        # laço soma
-        while i == 1:
-                # reseta o laço
-                i = 0
+        # caso o usuário digite -
+        while operador == '-':
+                num = float(input(userinput + 'num> '))
+                calculo = calculo - num
+                operador = (input(userinput + 'ope> '))
+
+        # caso o usuário digite *
+        while operador == '*':
+                num = float(input(userinput + 'num> '))
+                calculo = calculo * num
+                operador = (input(userinput + 'ope> '))
+        
+        # caso o usuário digite **
+        while operador == '**':
+                num = float(input(userinput + 'num> '))
+                calculo = calculo ** num
+                operador = (input(userinput + 'ope> '))
+
+        # printa o resultado caso o usuário digite =
+        print('\n' + 7 * ' ', calculo)
+        print('        -------------\n')
+        
+        # continua a conta
+        operador = (input(userinput + 'ope> '))
+        
+        # terminar o programa caso o usuário digite .
+        if operador == '.' or operador == 'exit':
+                print('\nFechando app')
                 
-                print('Você escolheu a opção de soma!')
+print('\n' + div)
 
-                print('Digite a quantidade de números que deseja somar:\n')
-
-                # pergunta ao usuário quantos números serão somados
-                repetelaco = int(input('       > ')) 
-
-                print('\n\nDigite os números a serem somados:\n')
-
-                while i < repetelaco:
-                        # pede pro usuário digitar os números
-                        numsoma = float(input('       > '))
-                        
-                        # soma os números
-                        rescalc = rescalc + numsoma # soma os números
-
-                        # adiciona 1 ao laço que para de acordo com a quantidade de números que o usuário quis somar
-                        i = i + 1
-
-                #mostra o resultado
-                print('\nO resultado da soma é', rescalc)
-                
-                # reseta o resultado
-                rescalc = 0
-
-                # input para pausar o laço para que o usuário leia as informações antes de continuar
-                input('\n>> Aperte enter para continuar <<')
-                
-                # reseta o laço para que o usuário volte para o início
-                i = 0
-
-        # end laço soma
-        # ===================================================
-        # incio laço multiplicação
-
-        while i == 2:
-                # reseta o laço
-                i = 0
-                
-                print('Você escolheu multiplicação!\n')
-
-                print('Digite a quantidade de números que deseja multiplicar:\n')
-
-                # pergunta ao usuário quantas números quer multiplicar
-                repetelaco = int(input('       > '))
-
-                print('\n\nDigite os números à serem multiplicados:')
-
-                rescalc = 1 # se a variavel de resultado estiver em 0 o resultado sempre será 0
-
-                while i < repetelaco:
-                        
-                        # pede pro usuário digitas os numeros
-                        nummulti = float(input('        > '))
-
-                        # multiplica os números
-                        rescalc = rescalc * nummulti
-                        
-                        # adiciona 1 até chegar a quantidade de vezes que o usuário quis repetir
-                        i = i + 1
-                        
-                #mostra o resultado
-                print('\nO resultado da multiplicação é:', rescalc)
-                
-                # reseta o resultado
-                rescalc = 0
-                
-                input('\n>> Aperte enter para continuar <<')
-                
-                # reseta o laço para que o usuário volte para o início
-                i = 0
-        # end laço multiplicação
-        # ===============================================
 # end laço do app
 # end app
 
